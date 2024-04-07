@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dateien speichern</title>
+</head>
+<body>
+    <h1>Dateien speichern</h1>
+    <form id="htmlDateienForm">
+        <!-- Hier füge deine Liste mit Checkboxen ein -->
+        <!-- Beispiel: -->
+        <input type="checkbox" name="htmlDateiCheckbox" value="Arifureta.html"> Arifureta<br>
+        <input type="checkbox" name="htmlDateiCheckbox" value="Overlord.html"> Overlord<br>
+        <input type="checkbox" name="htmlDateiCheckbox" value="Gate.html"> Gate<br>
+        <input type="checkbox" name="htmlDateiCheckbox" value="The Eminence in Shadow.html"> The Eminence in Shadow<br>
+        
+        <button type="button" onclick="speichern()">Speichern</button>
+    </form>
+
+    <script>
+        function speichern() {
+            // Ausgewählte HTML-Dateien erfassen
+            var ausgewaehlteDateien = document.querySelectorAll('input[name="htmlDateiCheckbox"]:checked');
+
+            if (ausgewaehlteDateien.length === 0) {
+                alert("Bitte wählen Sie mindestens eine Datei aus.");
+                return;
+            }
+
+            // Ausgewählte Dateinamen im lokalen Speicher speichern
+            var ausgewaehlteDateinamen = [];
+            ausgewaehlteDateien.forEach(function(checkbox) {
+                // Dateiname ohne Erweiterung speichern
+                var dateiName = checkbox.value.split(".html")[0];
+                ausgewaehlteDateinamen.push(dateiName);
+            });
+            localStorage.setItem("gespeicherteDateinamen", JSON.stringify(ausgewaehlteDateinamen));
+
+            alert("Dateinamen wurden lokal gespeichert.");
+        }
+    </script>
+</body>
+</html>

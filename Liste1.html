@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gespeicherte Dateinamen anzeigen</title>
+</head>
+<body>
+    <h1>Gespeicherte Dateinamen anzeigen</h1>
+    <div id="gespeicherteDateien"></div>
+
+    <script>
+        window.onload = function() {
+            // Abrufen der gespeicherten Dateinamen aus dem lokalen Speicher
+            var gespeicherteDateinamen = localStorage.getItem("gespeicherteDateinamen");
+
+            if (gespeicherteDateinamen) {
+                // Umwandeln der gespeicherten JSON-Daten in ein JavaScript-Array
+                var dateinamenArray = JSON.parse(gespeicherteDateinamen);
+                
+                // Durchlaufen der Dateinamen und Anzeigen in HTML
+                var htmlContent = "<ul>";
+                for (var i = 0; i < dateinamenArray.length; i++) {
+                    // Nur den Dateinamen ohne den Pfad anzeigen
+                    var dateiName = dateinamenArray[i].split("/").pop(); // Entfernt den Pfad und behält nur den Dateinamen
+                    htmlContent += "<li>" + dateiName + "</li>";
+                }
+                htmlContent += "</ul>";
+
+                // Dateinamen in das HTML-Div-Element einfügen
+                document.getElementById("gespeicherteDateien").innerHTML = htmlContent;
+            } else {
+                document.getElementById("gespeicherteDateien").innerHTML = "<p>Keine gespeicherten Dateinamen vorhanden.</p>";
+            }
+        };
+    </script>
+</body>
+</html>
