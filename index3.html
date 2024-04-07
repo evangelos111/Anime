@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        background-color: grey;
+        font-family: Arial, sans-serif;
+        text-align: center; /* Zentrieren des Textes */
+    }
+
+    #kritikAnzeige {
+        margin: 0 auto;
+        margin-top: 100px;
+        width: calc(50% - 20px); /* Breite auf 50% der Seite minus 20px für den Rand */
+        max-height: 300px; /* Maximal zulässige Höhe */
+        overflow: auto; /* Scrollleisten anzeigen, falls der Inhalt über die Grenzen hinausgeht */
+    }
+
+    .kritik {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        text-align: left; /* Text linksbündig */
+    }
+
+    .kritik-info {
+        margin-bottom: 5px;
+        background-color: transparent; /* Hintergrundfarbe entfernen */
+    }
+
+    .deleteButton {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    #kritikfeld, #nameFeld {
+        width: calc(50% - 20px); /* Breite auf 50% der Seite minus 20px für den Rand */
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-left: auto; /* Automatische Anpassung des linken Rands */
+        margin-right: auto; /* Automatische Anpassung des rechten Rands */
+    }
+
+    button {
+        width: 50%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .datum-uhrzeit {
+        font-size: 12px;
+        color: #888;
+        margin-top: 5px;
+    }
+</style>
+    <script>
+        function aktualisierenKritik() {
+            var name = document.getElementById("nameFeld").value.trim(); // Leerzeichen entfernen
+            var kritikText = document.getElementById("kritikfeld").value.trim(); // Leerzeichen entfernen
+            
+            // Überprüfen, ob Name und Kritik nicht leer sind
+            if (name === "" || kritikText === "") {
+                alert("Bitte füllen Sie alle Felder aus.");
+                return;
+            }
+
+            var gespeicherteKritik = JSON.parse(localStorage.getItem("gespeicherteKritik")) || [];
+
+            // Erstellen eines neuen Kritikobjekts
+            var neueKritik = {
+                Name: name,
+                Kritik: kritikText,
+                Datum: new Date().toLocaleString() // Aktuelles Datum und Uhrzeit
+            };
+
+            // Hinzufügen der neuen Kritik zu den gespeicherten Kritiken
+            gespeicherteKritik.push(neueKritik);
+            localStorage.setItem("gespeicherteKritik", JSON.stringify(gespeicherteKritik));
+
+            // Aktualisieren der angezeigten Kritik
+            anzeigenGespeicherteKritik();
+            // Textfelder leeren
+            document.getElementById("nameFeld").value = "";
+            document.getElementById("kritikfeld").value = "";
+        }
+
+        function anzeigenGespeicherteKritik() {
+            var gespeicherteKritik = JSON.parse(localStorage.getItem("gespeicherteKritik")) || [];
+            var kritikAnzeigeDiv = document.getElementById("kritikAnzeige");
+            kritikAnzeigeDiv.innerHTML = "";
+
+            gespeicherteKritik.forEach(function(kritik, index) {
+                var kritikElement = document.createElement("div");
+                kritikElement.className = "kritik";
+                
+                // Name und Kritik in separate Absätze einfügen
+                var nameAbsatz = document.createElement("p");
+                nameAbsatz.className = "kritik-info";
+                nameAbsatz.innerText = "Name: " + kritik.Name;
+                kritikElement.appendChild(nameAbsatz);
+
+                var kritikAbsatz = document.createElement("p");
+                kritikAbsatz.className = "kritik-info";
+                kritikAbsatz.innerText = "Kritik: " + kritik.Kritik;
+                kritikElement.appendChild(kritikAbsatz);
+                
+                // Datum und Uhrzeit der Kritik
+                var datumUhrzeit = document.createElement("p");
+                datumUhrzeit.className = "datum-uhrzeit";
+                datumUhrzeit.innerText = "Datum und Uhrzeit: " + kritik.Datum;
+                kritikElement.appendChild(datumUhrzeit);
+                
+                // Button zum Löschen der Kritik hinzufügen
+                var deleteButton = document.createElement("button");
+                deleteButton.className = "deleteButton";
+                deleteButton.innerText = "Löschen";
+                deleteButton.onclick = function() {
+                    gespeicherteKritik.splice(index, 1); // Kritik aus dem Array entfernen
+                    localStorage.setItem("gespeicherteKritik", JSON.stringify(gespeicherteKritik)); // Aktualisierte Kritiken im Local Storage speichern
+                    anzeigenGespeicherteKritik(); // Anzeige aktualisieren
+                };
+                kritikElement.appendChild(deleteButton);
+
+                kritikAnzeigeDiv.appendChild(kritikElement);
+            });
+        }
+
+        // Beim Laden der Seite bereits gespeicherte Kritiken anzeigen
+        window.onload = function() {
+            anzeigenGespeicherteKritik();
+            // Gespeicherten Text wiederherstellen, falls vorhanden
+            var gespeicherterName = localStorage.getItem("gespeicherterName");
+            var gespeicherterKritikText = localStorage.getItem("gespeicherterKritikText");
+            if (gespeicherterName) {
+                document.getElementById("nameFeld").value = gespeicherterName;
+            }
+            if (gespeicherterKritikText) {
+                document.getElementById("kritikfeld").value = gespeicherterKritikText;
+            }
+        };
+    </script>
+</head>
+<body>
+    <u><h1 style="text-align:center;">Kritik</h1></u>
+
+    <p style="font-size:150%; text-align:center;">Schreiben Sie Ihre Kritik hier unten im Feld</p>
+
+    <input type="text" id="nameFeld" placeholder="Name" required><br><br>
+
+    <textarea id="kritikfeld" rows="4" placeholder="Hier können Sie Ihre Kritik eingeben..." required></textarea>
+
+    <button onclick="aktualisierenKritik()">Aktualisieren</button>
+
+    <div id="kritikAnzeige"></div>
+</body>
+</html>
 
