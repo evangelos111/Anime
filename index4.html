@@ -1,1 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    body {
+        background-color: grey;
+        font-family: Arial, sans-serif;
+        text-align: center; /* Zentrieren des Textes */
+    }
+
+    #frageAnzeige {
+        margin: 0 auto;
+        margin-top: 100px;
+        width: calc(50% - 20px); /* Breite auf 50% der Seite minus 20px für den Rand */
+        max-height: 300px; /* Maximal zulässige Höhe */
+        overflow: auto; /* Scrollleisten anzeigen, falls der Inhalt über die Grenzen hinausgeht */
+    }
+
+    .frage {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: relative;
+        text-align: left; /* Text linksbündig */
+    }
+
+    .frage-info {
+        margin-bottom: 5px;
+        background-color: transparent; /* Hintergrundfarbe entfernen */
+    }
+
+    .deleteButton {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background-color: #ff6347;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    #fragefeld, #nameFeld {
+        width: calc(50% - 20px); /* Breite auf 50% der Seite minus 20px für den Rand */
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-left: auto; /* Automatische Anpassung des linken Rands */
+        margin-right: auto; /* Automatische Anpassung des rechten Rands */
+    }
+
+    button {
+        width: 50%;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .datum-uhrzeit {
+        font-size: 12px;
+        color: #888;
+        margin-top: 5px;
+    }
+</style>
+    <script>
+        function aktualisierenFrage() {
+            var name = document.getElementById("nameFeld").value.trim(); // Leerzeichen entfernen
+            var frageText = document.getElementById("fragefeld").value.trim(); // Leerzeichen entfernen
+            
+            // Überprüfen, ob Name und Frage nicht leer sind
+            if (name === "" || frageText === "") {
+                alert("Bitte füllen Sie alle Felder aus.");
+                return;
+            }
+
+            var gespeicherteFragen = JSON.parse(localStorage.getItem("gespeicherteFragen")) || [];
+
+            // Erstellen einer neuen Frage
+            var neueFrage = {
+                Name: name,
+                Frage: frageText,
+                Datum: new Date().toLocaleString() // Aktuelles Datum und Uhrzeit
+            };
+
+            // Hinzufügen der neuen Frage zu den gespeicherten Fragen
+            gespeicherteFragen.push(neueFrage);
+            localStorage.setItem("gespeicherteFragen", JSON.stringify(gespeicherteFragen));
+
+            // Aktualisieren der angezeigten Fragen
+            anzeigenGespeicherteFragen();
+            // Textfelder leeren
+            document.getElementById("nameFeld").value = "";
+            document.getElementById("fragefeld").value = "";
+        }
+
+        function anzeigenGespeicherteFragen() {
+            var gespeicherteFragen = JSON.parse(localStorage.getItem("gespeicherteFragen")) || [];
+            var frageAnzeigeDiv = document.getElementById("frageAnzeige");
+            frageAnzeigeDiv.innerHTML = "";
+
+            gespeicherteFragen.forEach(function(frage, index) {
+                var frageElement = document.createElement("div");
+                frageElement.className = "frage";
+                
+                // Name und Frage in separate Absätze einfügen
+                var nameAbsatz = document.createElement("p");
+                nameAbsatz.className = "frage-info";
+                nameAbsatz.innerText = "Name: " + frage.Name;
+                frageElement.appendChild(nameAbsatz);
+
+                var frageAbsatz = document.createElement("p");
+                frageAbsatz.className = "frage-info";
+                frageAbsatz.innerText = "Frage: " + frage.Frage;
+                frageElement.appendChild(frageAbsatz);
+                
+                // Datum und Uhrzeit der Frage
+                var datumUhrzeit = document.createElement("p");
+                datumUhrzeit.className = "datum-uhrzeit";
+                datumUhrzeit.innerText = "Datum und Uhrzeit: " + frage.Datum;
+                frageElement.appendChild(datumUhrzeit);
+                
+                // Button zum Löschen der Frage hinzufügen
+                var deleteButton = document.createElement("button");
+                deleteButton.className = "deleteButton";
+                deleteButton.innerText = "Löschen";
+                deleteButton.onclick = function() {
+                    gespeicherteFragen.splice(index, 1); // Frage aus dem Array entfernen
+                    localStorage.setItem("gespeicherteFragen", JSON.stringify(gespeicherteFragen)); // Aktualisierte Fragen im Local Storage speichern
+                    anzeigenGespeicherteFragen(); // Anzeige aktualisieren
+                };
+                frageElement.appendChild(deleteButton);
+
+                frageAnzeigeDiv.appendChild(frageElement);
+            });
+        }
+
+        // Beim Laden der Seite bereits gespeicherte Fragen anzeigen
+        window.onload = function() {
+            anzeigenGespeicherteFragen();
+            // Gespeicherten Text wiederherstellen, falls vorhanden
+            var gespeicherterName = localStorage.getItem("gespeicherterName");
+            var gespeicherterFrageText = localStorage.getItem("gespeicherterFrageText");
+            if (gespeicherterName) {
+                document.getElementById("nameFeld").value = gespeicherterName;
+            }
+            if (gespeicherterFrageText) {
+                document.getElementById("fragefeld").value = gespeicherterFrageText;
+            }
+        };
+    </script>
+</head>
+<body>
+    <u><h1 style="text-align:center;">Frage</h1></u>
+
+    <p style="font-size:150%; text-align:center;">Schreiben Sie Ihre Frage hier unten im Feld</p>
+
+    <input type="text" id="nameFeld" placeholder="Name" required><br><br>
+
+    <textarea id="fragefeld" rows="4" placeholder="Hier können Sie Ihre Frage eingeben..." required></textarea>
+	
+	
+
+    <button onclick="aktualisierenFrage()">Aktualisieren</button>
+
+    <div id="frageAnzeige"></div>
+</body>
+</html>
 
