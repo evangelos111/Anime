@@ -3,138 +3,94 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arifureta</title>
 <style>
  body {
-    background-image: url('pDmfA1mRdd0LrQm566YIFuZQTYO.jpg');
-    background-size: cover;
-    background-position: 50px 0px;
-    position: relative; /* Stelle sicher, dass das Overlay relativ zum Body positioniert wird */
-	color: white;
-}
-
-/* Overlay-Stil */
-.overlay {
-    position: absolute; /* Positioniere das Overlay absolut innerhalb des Body */
-    top: 0;
-    left: 0;
-    width: var(--container-width); /* Breite des Overlays basierend auf einer CSS-Variable */
-    height: 100%; /* Volle Höhe des Body */
-    background-color: rgba(0, 0, 0, 0.9); /* Dunkle Farbe mit 50% Opazität */
+	background-image: url('pDmfA1mRdd0LrQm566YIFuZQTYO.jpg');
+    background-color: grey;
+    color: white;
+	text-align: center;
 }
 
 .container {
     margin: auto;
-    max-width: 800px; /* Maximale Breite des Inhalts */
-    padding: 20px; /* Innenabstand des Containers */
-    background-color: rgba(0, 0, 0, 0.8); /* Hintergrundfarbe des Containers mit Transparenz */
-    border: 2px solid white; /* Rahmen um den Container */
-    border-radius: 10px; /* Abgerundete Ecken für den Rahmen */
-    --container-width: calc(100% - 44px); /* Breite des Containers (100% - 2 * border-width) */
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+    border-radius: 10px;
 }
 
-.begrüßung {
-	font-family: Helvetica, sans-serif;
-    text-align: center; 
-    padding: 80px;
-	font-size: 150%;
-    position: relative; /* Stelle sicher, dass der Text relativ zum Body positioniert wird */
-    z-index: 1; /* Stelle sicher, dass der Text über dem Overlay liegt */
-    color: white; /* Helle Textfarbe */
+.container h1 {
+    font-size: 30px;
 }
-ul {
+
+.container h2 {
+    font-size: 30px;
+}
+
+.container p {
+    font-size: 20px;
+}
+
+.container ul {
     text-align: center;
     list-style-type: none;
-    z-index: 1; /* Stelle sicher, dass die Liste über dem Overlay liegt */
-    padding: 0; /* Kein zusätzlicher Abstand um die Liste herum */
-    border: 2px solid white; /* Rahmen um die Liste */
-    border-radius: 10px; /* Abgerundete Ecken für den Rahmen */
-  }
-  
-  li {
-    font-family: Helvetica, sans-serif; /* Serifenlose Schriftart (Helvetica) hinzugefügt */
-    font-size: 90%;
-    color: white; /* Helle Textfarbe */
-    background-color: rgba(0, 0, 0, 0.7); /* Dunkle Farbe mit 70% Opazität */
-    padding: 10px; /* Abstand um den Text herum */
-    margin: 10px; /* Abstand zwischen den Listenpunkten */
-  }
-
-  li a {
-    color: white; /* Farbe der Texte in den Aufzählungen auf Weiß setzen */
-  }
-
-/* Kasten auf der rechten Seite */
-.slider-box {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.slider {
-    -webkit-appearance: none;
-    width: 100%;
-    height: 10px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
+.container li {
+    font-size: 20px;
 }
 
-.slider:hover {
-    opacity: 1;
-}
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
-}
 
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #4CAF50;
-    cursor: pointer;
+/* Stil für die Unterpunkte */
+.container .subpoints {
+    margin-top: 10px; /* Abstand nach oben */
+    border: 2px solid white; /* Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken für den Rahmen */
+    padding: 10px; /* Innenabstand */
 }
 </style>
 </head>
 
 <body>
-<div class="overlay"></div> <!-- Overlay-Div über das Hintergrundbild -->
-<div class="container"> <!-- Container für den gesamten Inhalt der Seite -->
-    <h1 style= "font-family: Helvetica, sans-serif;text-align:center">Hallo und Willkommen auf meiner Seite</h1>
+<div class="overlay"></div>
+<div class="container">
+    <h1>Arifureta</h1>
 
-    <div class="begrüßung">Sie finden Animes über das Anklicken auf ihr Genre. Bei Fragen oder Kritik klicken Sie <a href="Fragen%20und%20Kritik.html">hier</a> ansonsten wünsche ich viel Spaß beim Durchstöbern. Ganz nebenbei, ich werde sicherlich nicht alle Animes kennen, darum könnt ihr mir Animes auf den Genre aufzählen und wie bei den anderen kurze Zusammenfassung schreiben, damit ich eine Seite zu den Animes erstellen kann. Ihr werdet erwähnt, dass ihr mir den Anime empfohlen habt und werdet auch bei Fragen und Kritik von mir kontaktiert (ist freiwillig und ihr könnt auch entscheiden, ob ihr Credits wollt).</div>
+    <h2>Zusammenfassung</h2>
 
+    <p>Alles beginnt damit das eine Klasse in einer anderen Welt telepotiert 
+    wird und unter anderem befindet sich der Main Character "Hajime Nagumo". Dieser wird in späteren Folgen 
+    hintergangen. Dabei lernt er zu Überleben und nebenbei trifft er einer seiner späteren Gefährten "...".
+    Anschließend kommt er aus seiner Falle raus und ist noch stärker als seine angeblichen Kammaraden.</p>
+	<div class="subpoints">
+    <h3>Meinung von mir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+	<div class="subpoints">
+    <h3>Meinung von dir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+	<div class="subpoints">
+    <h3>Meinung von der Community und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+</div>
 
-    <a style="font-size: 200%;"><p style= "text-align: center ;font-family: Helvetica, sans-serif; color: white; ">Genre</p></a>
-
-    <ul style="text-align: center; list-style-type: none;">
-      <li><a href="Isekai.html">Isekai (Wiedergeburt)</a></li>
-      <li><a href="#">Kodomo (für Kinder)</a></li>
-      <li><a href="#">Shojo (für Mädchen)</a></li>
-      <li><a href="#">Shonen (für Jungen)</a></li>
-      <li><a href="#">Josei (für Junge Frauen)</a></li>
-      <li><a href="#">Seinen (für Junge Männer)</a></li>
-    </ul>
-</div> <!-- Ende des Containers -->
-
-<!-- Kasten auf der rechten Seite -->
 <div class="slider-box">
     <input type="range" min="0" max="200" value="100" class="slider" id="brightnessRange" onchange="changeBrightness()">
 </div>
