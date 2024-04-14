@@ -10,6 +10,10 @@
     background-color: grey;
     color: white;
     text-align: center;
+    background-size: cover; /* Hintergrundbild füllt den sichtbaren Bereich aus */
+    background-repeat: repeat; /* Hintergrundbild wird nicht wiederholt */
+    background-position: center; /* Zentriert das Hintergrundbild */
+    height: 100vh; /* Höhe des sichtbaren Bereichs */
 }
 
 .container {
@@ -49,23 +53,6 @@
     border-radius: 5px; /* Abgerundete Ecken für den Rahmen */
     padding: 10px; /* Innenabstand */
 }
-
-/* Stil für das Video-Container-Div */
-.video-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%; /* Verhältnis des Video-Containers (Höhe/Breite), um das Video im 16:9-Format zu halten */
-}
-
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 </style>
 </head>
 
