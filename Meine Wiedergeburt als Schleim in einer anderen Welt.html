@@ -1,40 +1,110 @@
-<html>
-<head> 
-<title>Meine Wiedergeburt als Schleim in einer anderen Welt</title>
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arifureta</title>
+<style>
+ body {
+	background-image: url('pDmfA1mRdd0LrQm566YIFuZQTYO.jpg');
+    background-color: grey;
+    color: white;
+	text-align: center;
+}
+
+.container {
+    margin: auto;
+    max-width: 800px; /* Maximale Breite des Containers für Desktop */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid white; /* Breite des Rahmens für Desktop */
+    border-radius: 10px;
+}
+
+.container h1 {
+    font-size: 2rem; /* 30px */
+}
+
+.container h2 {
+    font-size: 2rem; /* 30px */
+}
+
+.container p {
+    font-size: 1.5rem; /* 20px */
+}
+
+.container ul {
+    text-align: center;
+    list-style-type: none;
+}
+
+.container li {
+    font-size: 1.5rem; /* 20px */
+}
+
+/* Stil für die Unterpunkte */
+.container .subpoints {
+    margin-top: 10px; /* Abstand nach oben */
+    border: 2px solid white; /* Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken für den Rahmen */
+    padding: 10px; /* Innenabstand */
+}
+</style>
 </head>
-<body style="background-color:grey">
-	
-<h1>Meine Wiedergeburt als Schleim in einer anderen Welt</h1>
 
-<h2 style="font-size: 30px">Zusammenfassung</h2>
+<body>
+<div class="overlay"></div>
+<div class="container">
+    <h1>Arifureta</h1>
 
-<a> </a>
-<p style="font-size: 20px"></p>
+    <h2>Zusammenfassung</h2>
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=Z5pcqinaaoA" allowfullscreen></iframe>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7CPNPAma6iM?si=n9Ak-PRA3UJmUq1K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
-<h3 style="font-size: 25px">Meinung von mir und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  
-<p></p>
-<h3 style="font-size: 25px">Meinung von dir und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  </p>
-<p></p>
-<h3 style="font-size: 25px">Meinung von der Community und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  </p>
+    <p"Arifureta" ist ein Isekai-Anime, der die Geschichte von Hajime Nagumo erzählt, einem gewöhnlichen Schüler, der zusammen mit seiner Klasse in eine fremde Welt teleportiert wird. Während seine Klassenkameraden übernatürliche Fähigkeiten entwickeln, fühlt sich Hajime ausgeschlossen und schwach. Doch als er in eine tödliche Falle gerät und von seinen Freunden betrogen wird, muss er alleine ums Überleben kämpfen.
 
-<p><button onclick="location.href='Liste1.html'">meine Liste</button></p>
-  <p><button onclick="location.href='Liste.html'">meine Liste erstellen</button></p>
+Hajime muss seine Fähigkeiten weiterentwickeln, um in der gefährlichen Welt zu überleben. Auf seinem Weg macht er Bekanntschaft mit verschiedenen Charakteren, darunter die mysteriöse Yue, und findet unerwartete Verbündete.
+
+Der Anime zeichnet sich durch seine Mischung aus Action, Abenteuer und Fantasy aus. Mit seinen Wendungen, dem Kampf ums Überleben und der Entwicklung der Charaktere bietet "Arifureta" eine spannende und mitreißende Geschichte.</p>
+    <div class="subpoints">
+    <h3>Meinung von mir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+    <div class="subpoints">
+    <h3>Meinung von dir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+    <div class="subpoints">
+    <h3>Meinung von der Community und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+</div>
+
+<div class="slider-box">
+    <input type="range" min="0" max="200" value="100" class="slider" id="brightnessRange" onchange="changeBrightness()">
+</div>
+
+<script>
+// Funktion zum Ändern der Helligkeit des Hintergrundbildes basierend auf dem Slider-Wert
+function changeBrightness() {
+    var brightnessValue = document.getElementById("brightnessRange").value;
+    document.body.style.filter = "brightness(" + brightnessValue + "%)";
+}
+</script>
 
 </body>
 </html>
