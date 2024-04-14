@@ -1,40 +1,106 @@
-<html>
-<head> 
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Re:Monster</title>
+<style>
+ body {
+	background-image: url('MV5BMGZmYjQzMmUtMDg3MC00MmQyLWI4M2YtMjczOGJjNjhiMmM0XkEyXkFqcGdeQXVyMTIzNDEwODY@._V1_FMjpg_UX1000_.jpg');
+    background-color: grey;
+    color: white;
+	text-align: center;
+    background-repeat: no-repeat; /* Bild nur einmal anzeigen */
+    background-size: cover; /* Bild über den gesamten Bildschirm strecken */
+}
+
+.container {
+    margin: auto;
+    max-width: 800px; /* Maximale Breite des Containers für Desktop */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid white; /* Breite des Rahmens für Desktop */
+    border-radius: 10px;
+}
+
+.container h1 {
+    font-size: 2rem; /* 30px */
+}
+
+.container h2 {
+    font-size: 2rem; /* 30px */
+}
+
+.container p {
+    font-size: 1.5rem; /* 20px */
+}
+
+.container ul {
+    text-align: center;
+    list-style-type: none;
+}
+
+.container li {
+    font-size: 1.5rem; /* 20px */
+}
+
+/* Stil für die Unterpunkte */
+.container .subpoints {
+    margin-top: 10px; /* Abstand nach oben */
+    border: 2px solid white; /* Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken für den Rahmen */
+    padding: 10px; /* Innenabstand */
+}
+</style>
 </head>
-<body style="background-color:grey">
-	
-<h1>Re:Monster</h1>
 
-<h2 style="font-size: 30px">Zusammenfassung</h2>
+<body>
+<div class="overlay"></div>
+<div class="container">
+    <h1>Re:Monster</h1>
 
-<a> </a>
-<p style="font-size: 20px"></p>
+    <h2>Zusammenfassung</h2>
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=W5aljwsSzYs" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/W5aljwsSzYs?si=x-uJFKHtqPS0smft" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+    <p>"Campfire Cooking in Another World with My Absurd Skill" ist eine charmante Geschichte über Mukohda, einen begabten Koch, der in einer Fantasy-Welt landet. Mit seiner einzigartigen Fähigkeit, Lebensmittel durch Kochen zu verbessern und magische Effekte hervorzurufen, begibt er sich auf eine kulinarische Reise. Die Serie bietet eine unterhaltsame Mischung aus Kochkunst, Abenteuer und Fantasie.</p>
+    <div class="subpoints">
+    <h3>Meinung von mir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+    <div class="subpoints">
+    <h3>Meinung von dir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+    <div class="subpoints">
+    <h3>Meinung von der Community und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+</div>
 
+<div class="slider-box">
+    <input type="range" min="0" max="200" value="100" class="slider" id="brightnessRange" onchange="changeBrightness()">
+</div>
 
-<h3 style="font-size: 25px">Meinung von mir und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  
-<p></p>
-<h3 style="font-size: 25px">Meinung von dir und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  </p>
-<p></p>
-<h3 style="font-size: 25px">Meinung von der Community und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  </p>
-
-<p><button onclick="location.href='Liste1.html'">meine Liste</button></p>
-  <p><button onclick="location.href='Liste.html'">meine Liste erstellen</button></p>
+<script>
+// Funktion zum Ändern der Helligkeit des Hintergrundbildes basierend auf dem Slider-Wert
+function changeBrightness() {
+    var brightnessValue = document.getElementById("brightnessRange").value;
+    document.body.style.filter = "brightness(" + brightnessValue + "%)";
+}
+</script>
 
 </body>
 </html>
