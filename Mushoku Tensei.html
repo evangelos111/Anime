@@ -1,41 +1,106 @@
-<html>
-<head> 
-<title>Mushoku Tensei</title>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arifureta</title>
+<style>
+ body {
+	background-image: url('pDmfA1mRdd0LrQm566YIFuZQTYO.jpg');
+    background-color: grey;
+    color: white;
+	text-align: center;
+}
+
+.container {
+    margin: auto;
+    max-width: 800px; /* Maximale Breite des Containers für Desktop */
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 2px solid white; /* Breite des Rahmens für Desktop */
+    border-radius: 10px;
+}
+
+.container h1 {
+    font-size: 2rem; /* 30px */
+}
+
+.container h2 {
+    font-size: 2rem; /* 30px */
+}
+
+.container p {
+    font-size: 1.5rem; /* 20px */
+}
+
+.container ul {
+    text-align: center;
+    list-style-type: none;
+}
+
+.container li {
+    font-size: 1.5rem; /* 20px */
+}
+
+/* Stil für die Unterpunkte */
+.container .subpoints {
+    margin-top: 10px; /* Abstand nach oben */
+    border: 2px solid white; /* Rahmen */
+    border-radius: 5px; /* Abgerundete Ecken für den Rahmen */
+    padding: 10px; /* Innenabstand */
+}
+</style>
 </head>
-<body style="background-color:grey">
-	
-<h1>Mushoku Tensei</h1>
 
-<h2 style="font-size: 30px">Zusammenfassung</h2>
+<body>
+<div class="overlay"></div>
+<div class="container">
+    <h1>Arifureta</h1>
 
+    <h2>Zusammenfassung</h2>
 
-<p style="font-size: 20px">Unser Haupt Character ist ein Arbeitsloser, der nichts auf die reihe bekommt und nach dem er rausgeschmissen wurde ist er auch schnell 
-	verstorben. Nach seinem Tod wurde er als Neugeborener in einer Neuen Welt geboren und wurde schnell zu einem guten Magier, nachdem er ein Buch mit Zaubersprüchen fand.</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=k5VxfJpzy1Q frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7CPNPAma6iM?si=n9Ak-PRA3UJmUq1K" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 
+    <p>
+"Mushoku Tensei: Jobless Reincarnation" ist ein Anime über Rudeus Greyrat, der in einer Fantasywelt wiedergeboren wird und seine zweite Chance nutzt, um ein mächtiger Magier zu werden. Er erkundet die Welt, knüpft Freundschaften und stellt sich seiner Vergangenheit. Die Serie kombiniert Fantasy, Abenteuer und Drama zu einer fesselnden Geschichte über persönliches Wachstum und Verantwortung.</p>
+    <div class="subpoints">
+    <h3>Meinung von mir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+    <div class="subpoints">
+    <h3>Meinung von dir und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+    <div class="subpoints">
+    <h3>Meinung von der Community und Skalierung</h3>
+    
+        <p>Geschichte =  </p>
+        <p>Animationen =  </p>
+        <p>Dub Version (Stimmen)=  </p>
+        <p>Sub Version (Stimmen)=  </p>
+    </div>
+</div>
 
-<h3 style="font-size: 25px">Meinung von mir und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  
-<p></p>
-<h3 style="font-size: 25px">Meinung von dir und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  </p>
-<p></p>
-<h3 style="font-size: 25px">Meinung von der Community und Skalierung</h3>
-<p style="font-size: 20px">Geschichte =  </p>
-<p style="font-size: 20px">Animationen =  </p>
-<p style="font-size: 20px">Dub Version (Stimmen)=  </p>
-<p style="font-size: 20px">Sub Version (Stimmen)=  </p>
+<div class="slider-box">
+    <input type="range" min="0" max="200" value="100" class="slider" id="brightnessRange" onchange="changeBrightness()">
+</div>
 
-<p><button onclick="location.href='Liste1.html'">meine Liste</button></p>
-  <p><button onclick="location.href='Liste.html'">meine Liste erstellen</button></p>
+<script>
+// Funktion zum Ändern der Helligkeit des Hintergrundbildes basierend auf dem Slider-Wert
+function changeBrightness() {
+    var brightnessValue = document.getElementById("brightnessRange").value;
+    document.body.style.filter = "brightness(" + brightnessValue + "%)";
+}
+</script>
 
 </body>
 </html>
