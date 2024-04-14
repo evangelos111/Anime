@@ -68,26 +68,28 @@ ul {
     position: fixed;
     top: 0;
     right: 0;
-    width: 100%; /* Ändere die Breite auf 100% */
-    height: 50px; /* Ändere die Höhe auf die gewünschte Höhe */
+    width: 50px; /* Breite des Kastens */
+    height: 100%; /* Höhe des Kastens */
     background-color: rgba(0, 0, 0, 0.5);
     padding: 20px;
     z-index: 1;
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column; /* Ändere die Ausrichtung auf vertikal */
 }
 
 .slider {
     -webkit-appearance: none;
-    width: 90%; /* Ändere die Breite auf 90% */
-    height: 10px;
+    width: 10px; /* Breite des Sliders */
+    height: 90%; /* Höhe des Sliders */
     border-radius: 5px;
     background: #d3d3d3;
     outline: none;
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
+    transform: rotate(270deg); /* Rotiere den Slider um 270 Grad, um die Ausrichtung zu ändern */
 }
 
 .slider:hover {
