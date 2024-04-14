@@ -1,1 +1,31 @@
+// server.js
+
+// Erforderliche Module laden
+const WebSocket = require('ws');
+const wss = new WebSocket.Server({ port: 8080 });
+
+// Array zur Speicherung der verbundenen Clients
+const clients = [];
+
+// WebSocket-Server-Ereignisbehandlung für neue Verbindungen
+wss.on('connection', function connection(ws) {
+    // Client zur Liste der verbundenen Clients hinzufügen
+    clients.push(ws);
+
+    // Ereignisbehandlung für eingehende Nachrichten
+    ws.on('message', function incoming(message) {
+        // Nachricht an alle anderen Clients senden
+        clients.forEach(function each(client) {
+            if (client !== ws && client.readyState === WebSocket.OPEN) {
+                client.send(message);
+            }
+        });
+    });
+
+    // Ereignisbehandlung für das Schließen der Verbindung
+    ws.on('close', function close() {
+        // Client aus der Liste der verbundenen Clients entfernen
+        clients.splice(clients.indexOf(ws), 1);
+    });
+});
 
